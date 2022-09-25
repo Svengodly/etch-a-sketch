@@ -1,0 +1,23 @@
+* {
+    padding:0px;
+    margin: 0px;
+}
+.container {
+    border: solid 5px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.row > div {
+    flex-grow: 1;
+    aspect-ratio: 1/1; /*Sets the heights of each of the div tags equal to their widths, making them squares.
+    The inner-text was removed because the text was making the height greater than the width.*/
+}
+
+.square {
+    border: solid 1px blue;
+}
