@@ -2,10 +2,22 @@
     padding:0px;
     margin: 0px;
 }
+
+body {
+    background-color: aqua;
+    text-align: center;
+}
+
+h1 {
+    margin: 48px 0px ;
+}
+
 .container {
     border: solid 5px black;
     display: flex;
     flex-direction: column;
+    width: 50%;
+    margin: auto;
 }
 
 .row {
@@ -19,5 +31,6 @@
 }
 
 .square {
-    border: solid 1px blue;
+    border: dotted 1px black;
+    background-color: white;
 }
