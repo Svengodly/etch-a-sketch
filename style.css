@@ -12,12 +12,19 @@ h1 {
     margin: 48px 0px ;
 }
 
+button{
+    font-size: 22px;
+    padding: 12px;
+    margin-bottom: 24px;
+}
+
 .container {
-    border: solid 5px black;
+    /* border: solid 5px black; */
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 700px;
     margin: auto;
+    margin-bottom: 25%;
 }
 
 .row {
@@ -32,5 +39,5 @@ h1 {
 
 .square {
     border: dotted 1px black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
 }

@@ -1,12 +1,20 @@
 /*
 TODO
-Need to sanitize user input so that only numbers 1 through 100 are accepted.
+
 */
 let container = document.querySelector("div.container");
-let button = document.querySelector("button");
+let sizeButton = document.querySelector("button");
+let clearButton = document.querySelector("button.clear");
 let size;
 
-button.addEventListener("click", getSize)
+sizeButton.addEventListener("click", getSize)
+
+clearButton.addEventListener("click", () => {
+   const squares = document.querySelectorAll(".square");
+   squares.forEach((square) => {
+    square.style.backgroundColor = "white";
+   })
+})
 
 function getSize(){
     if(container.hasChildNodes()){
@@ -14,17 +22,26 @@ function getSize(){
             container.removeChild(container.firstChild);
         }
     }
-    size = prompt("Size your grid");
+    size = prompt("Enter the size of your grid. Will return a grid of x by x.");
     //'size' currenlty stores a string type and needs to be converted to a Number type
     //for the boolean evaluation. 'Number(size)' will return NaN to 'Number.isInteger()'
     //if the value stored in 'size' cannot be converted to a number.
-    while(!Number.isInteger(Number(size)) || (size > 100 || size <= 0)){
-        size = prompt("Please enter a whole number between 1 and 100.");
+    if(size == null){
+        container.style.border = "none";
+        return
+    } else{
+        while(!Number.isInteger(Number(size)) || (size > 100 || size <= 0)){
+            if(size == null){
+                container.style.border = "none";
+                return
+            } else{
+
+                size = prompt("Please enter a whole number between 1 and 100.");
+            }
+        }
+        createGrid(size);
+
     }
-    // if(size < 0){
-    //     size = prompt("Value must be greater than 0 and no more than 100.");
-    // }
-    createGrid(size);
 }
 
 function createGrid(size){
@@ -41,11 +58,14 @@ for (let rowNum = 1; rowNum <= size; rowNum++){
     container.appendChild(row);
 }
 
+container.style.border = "solid black 5px";
 const squares = document.querySelectorAll(".square");
-    console.log(squares)
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = "black";
+            // let x = Math.floor(Math.random() * 255) + 1;
+            // let y = Math.floor(Math.random() * 255) + 1;
+            // let z = Math.floor(Math.random() * 255) + 1;
+            square.style.backgroundColor = `black`;
         })
         square.addEventListener("click", () => {
             square.style.backgroundColor = "white";
